@@ -22,7 +22,7 @@ namespace API.Controllers
        
         // GET: api/GenderPerfume/5
         [HttpGet("{id}", Name = "GetGP")]
-        public IActionResult Get(int id, [FromBody] PerfumeSearch search, [FromServices] IGetPerfumesByGender query)
+        public IActionResult Get(int id, [FromQuery] PerfumeSearch search, [FromServices] IGetPerfumesByGender query)
         {
             search.GenderId = id;
             

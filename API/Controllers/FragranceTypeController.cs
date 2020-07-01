@@ -21,13 +21,13 @@ namespace API.Controllers
         }
         // GET: api/FragranceType
         [HttpGet]
-        public IActionResult Get([FromBody] FragranceSearch search, [FromServices] IGetFragranceTypes query)
+        public IActionResult Get([FromQuery] FragranceSearch search, [FromServices] IGetFragranceTypes query)
         {
             return Ok(_executor.ExecuteQuery(query, search));
         }
         // GET: api/FragranceType/5
         [HttpGet("{id}", Name = "GetFP")]
-        public IActionResult Get(int id, [FromBody] PerfumeSearch search, [FromServices] IGetPerfumesByFragranceType query)
+        public IActionResult Get(int id, [FromQuery] PerfumeSearch search, [FromServices] IGetPerfumesByFragranceType query)
         {
             search.FragranceTypeId = id;
             return Ok(_executor.ExecuteQuery(query, search));

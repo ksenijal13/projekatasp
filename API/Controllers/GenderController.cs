@@ -22,7 +22,7 @@ namespace API.Controllers
 
         // GET: api/Gender
         [HttpGet]
-        public IActionResult Get([FromBody] GenderSearch search, [FromServices] IGetGenders query)
+        public IActionResult Get([FromQuery] GenderSearch search, [FromServices] IGetGenders query)
         {
             return Ok(_executor.ExecuteQuery(query, search));
         }

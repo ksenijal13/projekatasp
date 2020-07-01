@@ -2,6 +2,7 @@
 using Application.Commands;
 using Application.Email;
 using Application.Queries;
+using Application.Searches;
 using EFDataAccess;
 using Implementation.Commands;
 using Implementation.Email;
