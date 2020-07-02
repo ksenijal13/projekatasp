@@ -21,14 +21,6 @@ namespace API.Controllers
         {
             _executor = executor;
         }
-        // GET: api/UseCase
-        [HttpGet]
-        public IActionResult Get([FromQuery] AuditLogSearch search, [FromServices] IGetAuditLogs query)
-        {
-            return Ok(_executor.ExecuteQuery(query, search));
-        }
-
-
         // POST: api/UseCase
         [HttpPost]
         public IActionResult Post([FromBody] UserUseCaseDto dto, [FromServices] IAddUserUseCaseCommand command)

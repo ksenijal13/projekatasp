@@ -56,6 +56,7 @@ namespace API.Core
             services.AddTransient<IGetPerfumesByFragranceType, EfGetPerfumesByFragranceTypeQuery>();
             services.AddTransient<IGetGenders, EfGetGenders>();
             services.AddTransient<IGetFragranceTypes, EfGetFragranceTypeQuery>();
+            //services.AddTransient<IGetUserUseCaseQuery, EfGetUserUseCaseQuery>();
         }
         
     }
