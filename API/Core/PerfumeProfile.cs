@@ -20,7 +20,7 @@ namespace API.Core
                 {
                     ScentNoteId = psn
                 })));
-           
+
             CreateMap<Perfume, PerfumeDto>()
                 .ForMember(dest => dest.PerfumeScentNotes, opt => opt.MapFrom(x => x.PerfumeScentNotes.Select(psn => new DefineScentNotes
                 {
@@ -29,7 +29,9 @@ namespace API.Core
                 }).ToList()))
                 .ForMember(dest => dest.Brand, opt => opt.MapFrom(x => x.Brand.Name))
                  .ForMember(dest => dest.FragranceType, opt => opt.MapFrom(x => x.FragranceType.Name))
-                  .ForMember(dest => dest.Gender, opt => opt.MapFrom(x => x.Gender.Name));
+                  .ForMember(dest => dest.Gender, opt => opt.MapFrom(x => x.Gender.Name))
+                  .ForMember(dest => dest.Price, opt => opt.MapFrom(x => x.Price - (x.Price / 100 * x.Discount)));
+                    
         }
     }
 }

@@ -37,7 +37,13 @@ namespace Implementation.Queries
             {
                 query = query.Where(x => (x.Fragrance.ToLower().Contains(search.Name.ToLower())) || (x.Brand.Name.ToLower().Contains(search.Name.ToLower())));
             }
-
+            if (search.PriceAsc)
+            {
+                query = query.OrderBy(x => x.Price - (x.Price / 100 * x.Discount));
+            } else if (!search.PriceAsc)
+            {
+                query = query.OrderByDescending(x => x.Price - (x.Price/100 * x.Discount));
+            }
             return query.MakePaged<PerfumeDto, Perfume>(search, _mapper);
         }
     }
