@@ -21,10 +21,10 @@ namespace API.Controllers
         }
        
         // GET: api/GenderPerfume/5
-        [HttpGet("{id}", Name = "GetGP")]
-        public IActionResult Get(int id, [FromQuery] PerfumeSearch search, [FromServices] IGetPerfumesByGender query)
+        [HttpGet("{genderid}", Name = "GetGP")]
+        public IActionResult Get(int genderid, [FromQuery] PerfumeSearch search, [FromServices] IGetPerfumesByGender query)
         {
-            search.GenderId = id;
+            search.GenderId = genderid;
             
             return Ok(_executor.ExecuteQuery(query, search));
         }

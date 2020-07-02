@@ -23,10 +23,10 @@ namespace API.Controllers
        
 
         // GET: api/Cart/5
-        [HttpGet("{id}", Name = "GetCart")]
-        public IActionResult Get(int id, [FromServices] IGetYourCartQuery query)
+        [HttpGet("{userid}", Name = "GetCart")]
+        public IActionResult Get(int userid, [FromServices] IGetYourCartQuery query)
         {
-            return Ok(_executor.ExecuteQuery(query, id));
+            return Ok(_executor.ExecuteQuery(query, userid));
         }
 
         // POST: api/Cart
