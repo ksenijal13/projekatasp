@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Application.Commands
 {
-    public interface IUserUseCaseDeleteCommand : ICommand<UserUseCaseDto>
+    public interface IUserUseCaseDeleteCommand : ICommand<UserUseCaseDeleteDto>
     {
     }
 }

@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Application.DataTransfer
 {
-    public class UserUseCaseDto
+    public class UserUseCaseDeleteDto
     {
-      
         public int UserId { get; set; }
         public int UseCaseId { get; set; }
+        
     }
 }

@@ -20,7 +20,7 @@ namespace Implementation.Commands
 
         public string Name => "Delete use case for particular user";
 
-        public void Execute(UserUseCaseDto request)
+        public void Execute(UserUseCaseDeleteDto request)
         {
             var useCase = _context.UserUseCases.Where(x => (x.UseCaseId == request.UseCaseId) && (x.UserId == request.UserId)).FirstOrDefault();
             _context.UserUseCases.Remove(useCase);

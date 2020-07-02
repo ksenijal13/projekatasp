@@ -37,10 +37,10 @@ namespace API.Controllers
             return StatusCode(StatusCodes.Status201Created);
         }
         // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id, [FromBody] UserUseCaseDto dto, [FromServices] IUserUseCaseDeleteCommand command)
+        [HttpDelete]
+        public IActionResult Delete([FromQuery] UserUseCaseDeleteDto dto, [FromServices] IUserUseCaseDeleteCommand command)
         {
-            dto.UseCaseId = id;
+           // dto.UseCaseId = useCaseId;
             _executor.ExecuteCommand(command, dto);
             return StatusCode(StatusCodes.Status204NoContent);
         }
