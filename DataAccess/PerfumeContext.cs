@@ -12,16 +12,7 @@ namespace EFDataAccess
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             
-            /*modelBuilder.Entity<Cart>().HasData(carts);
-            modelBuilder.Entity<UserUseCase>().HasData(userUseCases);
-            modelBuilder.Entity<User>().HasData(users);
-            modelBuilder.Entity<Role>().HasData(roles);
-            modelBuilder.Entity<PerfumeScentNote>().HasData(perfumeScentNotes);
-            modelBuilder.Entity<Perfume>().HasData(perfumes);
-            modelBuilder.Entity<ScentNote>().HasData(scentNotes);
-            modelBuilder.Entity<FragranceType>().HasData(fragranceTypes);
-            modelBuilder.Entity<Brand>().HasData(brands);
-            modelBuilder.Entity<Gender>().HasData(genders);*/
+          
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new RoleConfiguration());
             modelBuilder.ApplyConfiguration(new PerfumeConfiguration());
