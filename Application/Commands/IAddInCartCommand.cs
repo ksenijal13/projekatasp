@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Application.Commands
 {
-    public interface IAddInCartCommand : ICommand<CartDto>
+    public interface IAddInCartCommand : ICommand<AddInCartDto>
     {
     }
 }

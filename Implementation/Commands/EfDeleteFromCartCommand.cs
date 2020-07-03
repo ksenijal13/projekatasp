@@ -1,5 +1,7 @@
 ﻿using Application.Commands;
 using Application.DataTransfer;
+using Application.Exceptions;
+using Domain;
 using EFDataAccess;
 using System;
 using System.Collections.Generic;
@@ -21,6 +23,10 @@ namespace Implementation.Commands
         public void Execute(int id)
         {
             var cart = _context.Carts.Find(id);
+            if (cart == null)
+            {
+                throw new EntityNotFoundException(id, typeof(Cart));
+            }
             cart.IsDeleted = true;
             cart.DeletedAt = DateTime.Now;
             cart.IsActive = false;

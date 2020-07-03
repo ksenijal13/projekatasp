@@ -31,17 +31,17 @@ namespace API.Controllers
 
         // POST: api/Cart
         [HttpPost]
-        public IActionResult Post([FromBody] CartDto dto, [FromServices] IAddInCartCommand command)
+        public IActionResult Post([FromBody] AddInCartDto dto, [FromServices] IAddInCartCommand command)
         {
             _executor.ExecuteCommand(command, dto);
             return StatusCode(StatusCodes.Status201Created);
         }
 
         // PUT: api/Cart/5
-        [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] CartDto dto, [FromServices] IUpdateCartQuantity command)
+        [HttpPut]
+        public IActionResult Put([FromQuery] CartDto dto, [FromServices] IUpdateCartQuantity command)
         {
-            dto.Id = id;
+           
             _executor.ExecuteCommand(command, dto);
             return StatusCode(StatusCodes.Status204NoContent);
         }

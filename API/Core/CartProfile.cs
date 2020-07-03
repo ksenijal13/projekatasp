@@ -13,7 +13,7 @@ namespace API.Core
         public CartProfile()
         {
             CreateMap<CartDto, Cart>();
-
+            CreateMap<AddInCartDto, Cart>();
             CreateMap<Cart, YourCartDto>()
                 .ForMember(dest => dest.BrandName, opt => opt.MapFrom(x => x.Perfume.Brand.Name))
                 .ForMember(dest => dest.FragranceName, opt => opt.MapFrom(x => x.Perfume.Fragrance))

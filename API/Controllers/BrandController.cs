@@ -38,10 +38,10 @@ namespace API.Controllers
         }
 
         // PUT: api/Brand/5
-        [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] BrandDto dto, [FromServices] IUpdateBrandCommand command)
+        [HttpPut]
+        public IActionResult Put([FromQuery] BrandDto dto, [FromServices] IUpdateBrandCommand command)
         {
-            dto.Id = id;
+           // dto.Id = id;
             _executor.ExecuteCommand(command, dto);
             return StatusCode(StatusCodes.Status204NoContent);
 

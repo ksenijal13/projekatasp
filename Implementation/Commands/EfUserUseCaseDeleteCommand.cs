@@ -23,6 +23,10 @@ namespace Implementation.Commands
         public void Execute(UserUseCaseDeleteDto request)
         {
             var useCase = _context.UserUseCases.Where(x => (x.UseCaseId == request.UseCaseId) && (x.UserId == request.UserId)).FirstOrDefault();
+            if (useCase == null)
+            {
+                throw new KeyNotFoundException();
+            }
             _context.UserUseCases.Remove(useCase);
             _context.SaveChanges();
         }

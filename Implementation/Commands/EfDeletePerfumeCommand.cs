@@ -1,4 +1,6 @@
 ﻿using Application.Commands;
+using Application.Exceptions;
+using Domain;
 using EFDataAccess;
 using System;
 using System.Collections.Generic;
@@ -21,9 +23,9 @@ namespace Implementation.Commands
         public void Execute(int id)
         {
             var perfume = _context.Perfumes.Find(id);
-            if(perfume == null)
+            if (perfume == null)
             {
-                throw new  KeyNotFoundException();
+                throw new EntityNotFoundException(id, typeof(Perfume));
             }
             perfume.DeletedAt = DateTime.Now;
             perfume.IsDeleted = true;

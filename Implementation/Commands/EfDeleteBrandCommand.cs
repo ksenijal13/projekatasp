@@ -1,4 +1,6 @@
 ﻿using Application.Commands;
+using Application.Exceptions;
+using Domain;
 using EFDataAccess;
 using System;
 using System.Collections.Generic;
@@ -20,6 +22,10 @@ namespace Implementation.Commands
         public void Execute(int request)
         {
             var brand = _context.Brands.Find(request);
+            if(brand == null)
+            {
+                throw new EntityNotFoundException(request, typeof(Brand));
+            }
             brand.DeletedAt = DateTime.Now;
             brand.IsDeleted = true;
             brand.IsActive = false;
